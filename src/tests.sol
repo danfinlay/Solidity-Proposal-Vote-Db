@@ -1,7 +1,7 @@
 pragma solidity ^0.4.0;
 
 import "dapple/test.sol";
-import "./proposal-address-vote-db.sol";
+import "./proposal-vote-db.sol";
 
 contract UnitTest is Test {
 
