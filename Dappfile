@@ -1,0 +1,21 @@
+description: ''
+authors: []
+license: MIT
+keywords: []
+version: 0.0.1-dev
+tags: []
+layout:
+  sol_sources: ./src
+  build_dir: ./build
+  packages_directory: ./.dapple/packages/
+dependencies:
+  ds-auth: 'ipfs://QmXLnhj5D4qHMNmkv5avF1c52cubR6p66uxVWsS2VHG8Y9'
+  ds-base: 'ipfs://QmQKBSWaZCtfFihj3RsGyYH6ijjQ9VwbjAu1Wa9tF3Y13r'
+ignore: []
+name: sol-proposal-address-vote-db
+dapple_version: 0.8.45
+environments:
+  develop:
+    objects: {}
+    type: internal
+    chain: ''
