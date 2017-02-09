@@ -5,10 +5,14 @@ import "./proposal-address-vote-db.sol";
 
 contract UnitTest is Test {
 
-  ProposalAddressVoteDb db;
+  ProposalVoteDb db;
 
   function setUp () {
-    db = new ProposalAddressVoteDb();
+    db = new ProposalVoteDb();
+
+
+
+
   }
 
 }
