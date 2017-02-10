@@ -4,6 +4,8 @@ A simple proposal & vote database contract for Ethereum written in Solidity.
 
 Inherits from [DS-Auth](https://github.com/dapphub/ds-auth) and [DS-Base](https://github.com/dapphub/ds-base).
 
+Should be used by a frontend contract that is set as the database's owner, as defined by DS-Auth, allowing for easily updating frontend logic while keeping a consistent vote tally db.
+
 Solidity Interface:
 
 ```
@@ -24,5 +26,5 @@ contract ProposalVoteDb is DSAuth, DSBase {
 
 Install [Dapple](https://www.npmjs.com/package/dapple) with `npm install dapple -g`.
 
-Run `dapple pkg install ipfs://QmX58cyvCJwb1yCJEAMX9g581zz6MxfDNiCCrZTEAVFNEz`.
+Run `dapple pkg install ipfs://QmPNzXp2NGj1DFdinTrWNYKBgRas12hoVtbwZMxgPXWRMF`
 
