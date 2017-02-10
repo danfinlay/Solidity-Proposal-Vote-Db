@@ -24,6 +24,12 @@ contract ProposalVoteDb is DSAuth, DSBase {
   mapping (bytes32 => Proposal) proposals;
 
   function addProposal (uint _eip, bytes32 _proposalId) auth {
+
+    // If there is already a proposal for this EIP, throw:
+    if (proposals[_proposalId].eip != 0x0) {
+      throw;
+    }
+
     eipIndex[_eip].push(_proposalId);
 
     Proposal memory _proposal = Proposal({
