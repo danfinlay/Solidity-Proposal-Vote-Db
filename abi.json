@@ -1,0 +1,140 @@
+[
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_eip",
+        "type": "uint256"
+      },
+      {
+        "name": "_proposalId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "addProposal",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_proposalId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getVoteTallies",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_eip",
+        "type": "uint256"
+      }
+    ],
+    "name": "getProposalCount",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "newAuthority",
+        "type": "address"
+      }
+    ],
+    "name": "setAuthority",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_proposal",
+        "type": "bytes32"
+      },
+      {
+        "name": "_voter",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getVote",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "authority",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_proposal",
+        "type": "bytes32"
+      },
+      {
+        "name": "_voter",
+        "type": "bytes32"
+      },
+      {
+        "name": "_position",
+        "type": "bool"
+      }
+    ],
+    "name": "setVote",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "authority",
+        "type": "address"
+      }
+    ],
+    "name": "LogSetAuthority",
+    "type": "event"
+  }
+]
