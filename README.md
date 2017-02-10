@@ -22,4 +22,7 @@ contract ProposalVoteDb is DSAuth, DSBase {
 
 ## Installation
 
-Run `dapple pkg install `
+Install [Dapple](https://www.npmjs.com/package/dapple) with `npm install dapple -g`.
+
+Run `dapple pkg install ipfs://QmX58cyvCJwb1yCJEAMX9g581zz6MxfDNiCCrZTEAVFNEz`.
+
