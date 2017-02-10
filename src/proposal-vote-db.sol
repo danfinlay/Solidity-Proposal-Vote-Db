@@ -18,12 +18,12 @@ contract ProposalVoteDb is DSAuth, DSBase {
   }
 
   // Mapping eip number to proposal arrays
-  mapping (uint => bytes32[]) eipIndex;
+  mapping (uint => string[]) eipIndex;
 
   // Mapping proposal ID to proposal struct
-  mapping (bytes32 => Proposal) proposals;
+  mapping (string => Proposal) proposals;
 
-  function addProposal (uint _eip, bytes32 _proposalId) auth {
+  function addProposal (uint _eip, string _proposalId) auth {
     eipIndex[_eip].push(_proposalId);
 
     Proposal memory _proposal = Proposal({
@@ -39,12 +39,12 @@ contract ProposalVoteDb is DSAuth, DSBase {
     return eipIndex[_eip].length;
   }
 
-  function getVoteTallies (bytes32 _proposalId) returns (uint, uint) {
+  function getVoteTallies (string _proposalId) returns (uint, uint) {
     Proposal memory _proposal = proposals[_proposalId];
     return (_proposal.inFavor _proposal.against);
   }
 
-  function setVote (bytes32 _proposal, bytes32 _voter, bool _position) auth {
+  function setVote (string _proposal, bytes32 _voter, bool _position) auth {
     Proposal proposal = proposals[_proposal];
     Vote _vote = proposal.votes[_voter];
 
@@ -86,7 +86,7 @@ contract ProposalVoteDb is DSAuth, DSBase {
 
   }
 
-  function getVote (bytes32 _proposal, bytes32 _voter) returns (bool) {
+  function getVote (string _proposal, bytes32 _voter) returns (bool) {
     Vote _vote = proposals[_proposal].votes[_voter];
     if (!_vote.hasVoted) {
       throw;

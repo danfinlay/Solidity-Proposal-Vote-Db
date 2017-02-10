@@ -14,11 +14,11 @@ contract UnitTest is Test {
   function testAddProposal() {
     uint eipNum = 5;
 
-    bytes32 propId = 0x01;
+    string propId = String("This is a proposal");
     db.addProposal(eipNum, propId);
     assertEq(db.getProposalCount(eipNum), 1);
 
-    bytes32 secondPropId = 0x02;
+    string secondPropId = String("This is a proposal!");
     db.addProposal(eipNum, secondPropId);
     assertEq(db.getProposalCount(eipNum), 2);
 
@@ -29,7 +29,7 @@ contract UnitTest is Test {
 
   function testVoteFor() {
     uint eipNum = 5;
-    bytes32 propId = 0x01;
+    string propId = String("This is a proposal");
     bytes32 voter = 0x05;
 
     db.addProposal(eipNum, propId);
@@ -42,7 +42,7 @@ contract UnitTest is Test {
 
   function testVoteAgainst() {
     uint eipNum = 5;
-    bytes32 propId = 0x01;
+    string propId = String("This is a proposal");
     bytes32 voter = 0x05;
 
     db.addProposal(eipNum, propId);
@@ -55,7 +55,7 @@ contract UnitTest is Test {
 
   function testVoteAgainstChange() {
     uint eipNum = 5;
-    bytes32 propId = 0x01;
+    string propId = String("This is a proposal");
     bytes32 voter = 0x05;
 
     db.addProposal(eipNum, propId);
@@ -69,7 +69,7 @@ contract UnitTest is Test {
 
   function testVoteForChange() {
     uint eipNum = 5;
-    bytes32 propId = 0x01;
+    string propId = String("This is a proposal");
     bytes32 voter = 0x05;
 
     db.addProposal(eipNum, propId);
