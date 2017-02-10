@@ -35,12 +35,55 @@ contract ProposalVoteDb is DSAuth, DSBase {
     proposals[_proposalId] = _proposal;
   }
 
+  function getProposalCount (uint _eip) returns (uint) {
+    return eipIndex[_eip].length;
+  }
+
+  function getVoteTallies (bytes32 _proposalId) returns (uint, uint) {
+    Proposal memory _proposal = proposals[_proposalId];
+    return (_proposal.inFavor _proposal.against);
+  }
+
   function setVote (bytes32 _proposal, bytes32 _voter, bool _position) auth {
-    Vote _vote = proposals[_proposal].votes[_voter];
-    if (!_vote.hasVoted) {
-      throw;
+    Proposal proposal = proposals[_proposal];
+    Vote _vote = proposal.votes[_voter];
+
+    if (_vote.hasVoted && _vote.position != _position) { // Modify existing vote
+
+      if (_vote.position) { // If they switched to in favor from against:
+        if(safeToSub(proposal.inFavor, 1) && safeToAdd(proposal.against, 1)) {
+          proposal.inFavor -= 1;
+          proposal.against += 1;
+        }
+
+      } else { // If they switched to against to in favor:
+        if(safeToAdd(proposal.inFavor, 1) && safeToSub(proposal.against, 1)) {
+          proposal.inFavor += 1;
+          proposal.against -= 1;
+        }
+      }
+
+      _vote.position = _position;
+
+
+    } else { // Create new vote
+      if (_position) { // If they were in favor of the proposal:
+        if(safeToAdd(proposal.inFavor, 1)) {
+          proposal.inFavor += 1;
+        }
+
+      } else { // If they were against this proposal:
+        if (safeToAdd(proposal.against, 1)) {
+          proposal.against += 1;
+        }
+      }
+
+      proposal.votes[_voter] = Vote({
+        hasVoted: true,
+        position: _position
+      });
     }
-    _vote.position = _position;
+
   }
 
   function getVote (bytes32 _proposal, bytes32 _voter) returns (bool) {
