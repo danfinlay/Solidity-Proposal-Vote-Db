@@ -35,3 +35,9 @@ dapple init
 
 Run `dapple pkg install ipfs://QmPNzXp2NGj1DFdinTrWNYKBgRas12hoVtbwZMxgPXWRMF`
 
+Import the file into our solidity files:
+
+```
+import "sol-proposal-address-vote-db/proposal-vote-db.sol";
+```
+
