@@ -33,7 +33,7 @@ In your project folder:
 dapple init
 ```
 
-Run `dapple pkg install ipfs://QmPNzXp2NGj1DFdinTrWNYKBgRas12hoVtbwZMxgPXWRMF`
+Run `dapple pkg install ipfs://QmWoiNvnCUa9itHSaMnKRsmBLuwXoGcCoW55uNiHWY8Szj`
 
 Import the file into our solidity files:
 
