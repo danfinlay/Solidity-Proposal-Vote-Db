@@ -1,4 +1,4 @@
-description: ''
+description: 'A database contract for storing eip proposals, and votes on them.'
 authors: ['Dan Finlay <dan@danfinlay.com>']
 license: MIT
 keywords: []
